@@ -4,11 +4,19 @@
 <meta charset="utf-8">
 <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script> 
 </head>
-<body>
- 
+<body ng-app="myApp" ng-controller="myCtrl">
+<input type="button" value="加一" ng-click="sayHello()">
 <div ng-app="">
-     <p>我的第一个表达式: {{ 5 + 5 }}</p>
+     <p>我的第一个表达式: {{ data }}</p>
 </div>
- 
+<script>
+     var app = angular.module("myApp", []);
+     app.controller('myCtrl', function($scope) {
+          $scope.data = 1;
+          $scope.sayHello = function() {
+               $scope.data = $scope.data + 1;
+          };
+     });
+</script>
 </body>
 </html>
